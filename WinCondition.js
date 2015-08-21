@@ -2,11 +2,11 @@
  * Created by ntacey on 7/21/2015.
  */
 var highestCardValue = 0; //The highest value of the card in the winning set
-                            //this will be set in the seek functions
-                            //acts as a multiplier to figure out draws
+//this will be set in the seek functions
+//acts as a multiplier to figure out draws
 
 var secondHighestCardValue = 0; //will be used to determine ties between hands that have the same highest
-                                    //card value
+//card value
 
 /*******************************************************************************
  *
@@ -112,15 +112,15 @@ function seekThreeOfAKind(array){
 
         if (x === tempX) {
             iFoundX++;
-            x = highestCardValue;
+            highestCardValue = x;
+            if (iFoundX === 2){
+                return true;
+            }
         }
         else{
+            iFoundX = 0;
             tempX = x;
         }
-    }
-
-    if (iFoundX === 2){
-        return true;
     }
 
     return false;
@@ -202,28 +202,36 @@ function seekFlush(array){
     highestCardValue = 0;
     return false;
 }
-/*
- * currently doesn't function correctly, still debugging
- */
+
 function seekFullHouse(array){
     var tempHold = []; //will hold the cards taken out of the hand, to put them back in after it tries to
     //find the two pair
 
-    if(seekThreeOfAKind(array)){
+    if(seekThreeOfAKind(array)){ //check to see if hand passes seek three of a kind
+        //if it does, loop through all the cards in this hand
         for (Card in array) {
+            if (array[Card].value === highestCardValue) { //if the cards value is the highestcardvalue, which
+                //will be set when the function checks for the three of a kind
+                tempHold.push(array[Card]); //then add this card to a temporary array
 
-            if (array[Card].value === highestCardValue) {
-                tempHold.push(array[Card]);
-                array.splice(array.indexOf(array[Card]), 1);
+            }
+        }
+
+        //loop through these cards again..
+        for(Card in array) {
+            for (Card in tempHold) {
+                //and any card that is the same as a card in the temporary array..
+                if (tempHold[Card] === array[Card]) {
+                    array.splice(array.indexOf(array[Card]), 1); //take them out of the hand
+                }
             }
         }
 
         if(seekTwoPair(array)){
-            //return cards back into hand..
+            //return cards back into hand from the temporary array..
             for (Card in tempHold){
                 array.push(array[Card]);
             }
-
             return true;
         }
     }
@@ -233,11 +241,10 @@ function seekFullHouse(array){
         array.push(array[Card]);
     }
 
+    highestCardValue = 0;
     return false;
 }
-/*
-* currently doesn't function correctly
- */
+
 function seekFourOfAKind(array){
     var cardValueArray = [];
     var tempX = 0; //will hold our temporary x value
@@ -255,19 +262,25 @@ function seekFourOfAKind(array){
         if (x === tempX) {
             iFoundX++;
             highestCardValue = x;
+            if (iFoundX >= 3){
+                return true;
+            }
         }
         else{
+            iFoundX = 0;
             tempX = x;
         }
-    }
 
-    if (iFoundX >= 3){
-        return true;
     }
 
     return false;
 }
-
+/*
+ * Might not work correctly, will return true if straight and flush pass, which means they could have different cards
+ *
+ * In 7 card poker this should be very rare that this ever occurs, but still a possibility which might need to be worked
+ * out
+ */
 function seekStraightFlush(array){
     return (seekStraight(array) && seekFlush(array))
 }
@@ -309,3 +322,73 @@ function getRank(array){
     }
 }
 
+/*******************************************************************************
+ *
+ *  This function finds the hand that one the round for 3 hands
+ *
+ *      It will then get rank on all the hands individually, and assess who
+ *      has the highest ranking
+ *
+ *      If a tie occurs, it will get rank again on all of the hands, which
+ *      should have the removed cards from the previous go.
+ *
+ *  !!!Will need to refactor down the road. Need function that finds the
+ *     winner of any amount of hands!!!
+ *
+ *******************************************************************************
+ */
+function find3HandWinner(hand1, hand2, hand3){
+    var h1Rank = getRank(hand1);
+    var h2Rank = getRank(hand2);
+    var h3Rank = getRank(hand3);
+
+    if ((h1Rank === h2Rank) && (h1Rank === h3Rank)){
+        console.log("Winner between all three hands");
+        return true;
+    }
+
+    if(h1Rank > h2Rank){
+        if(h1Rank > h3Rank) {
+            console.log("Hand 1 is the winner");
+        } else if(h1Rank === h3Rank) {
+            var h1Rank2 = getRank(hand1);
+            var h3Rank2 = getRank(hand3);
+
+            if (h1Rank2 > h3Rank2){
+                console.log("Hand 1 is the winner")
+            } else if (h1Rank2 === h3Rank2){
+                console.log("Tie between hand 1 and 3");
+            } else console.log("Hand 3 is the winner")
+
+        } else console.log("Hand 3 is the winner")
+    } else if (h1Rank === h2Rank){
+        if(h3Rank > h1Rank) {
+            console.log("Hand 3 is the winner")
+        } else {
+            var h1Rank2 = getRank(hand1);
+            var h2Rank2 = getRank(hand2);
+
+            if (h1Rank2 > h2Rank2){
+                console.log("Hand 1 is the winner")
+            } else if (h1Rank2 === h2Rank2){
+                console.log("Tie between hand 1 and 2");
+            } else console.log("Hand 2 is the winner")
+
+        }
+    } else if (h2Rank > h3Rank){
+        console.log("Hand 2 is the winner")
+    } else if (h2Rank === h3Rank) {
+        var h2Rank2 = getRank(hand2);
+        var h3Rank2 = getRank(hand3);
+
+        if (h2Rank2 > h3Rank2){
+            console.log("Hand 2 is the winner")
+        } else if (h2Rank2 === h3Rank2){
+            console.log("Tie between hand 2 and 3");
+        } else console.log("Hand 3 is the winner")
+    }
+    else {
+        console.log("Hand 3 is the winner")
+    }
+
+}

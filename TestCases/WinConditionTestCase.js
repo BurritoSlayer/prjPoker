@@ -9,7 +9,7 @@
  * *******
  */
 
-
+//cardValueArray.splice(cardValueArray.indexOf(cardValueArray[c]), 1); //remove this card value from card array value
 
 function Card (cardName, cardUIName, suit, value, deckValue, color) {
     this.cardName = cardName; //no space or caps, used for grabbing the graphics
@@ -37,75 +37,82 @@ var deckIndex = 0;
 
 //fixed hand one -- should return as three of a kind, with value of 73 (60 + 13)
 var fHand1 = [new Card("aceofspades", "Ace of spades", "spades", 13, 13, "black"),
-              new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
-              new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
-              new Card("2ofspades", "2 of spades", "spades", 1, 1, "black"),
-              new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
-              new Card("7ofspades", "7 of spades", "spades", 6, 6, "black"),
-              new Card("9ofspades", "9 of spades", "spades", 8, 8, "black")];
+    new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
+    new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
+    new Card("2ofspades", "2 of spades", "spades", 1, 1, "black"),
+    new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
+    new Card("7ofspades", "7 of spades", "spades", 6, 6, "black"),
+    new Card("9ofspades", "9 of spades", "spades", 8, 8, "black")];
 
 //fixed hand two -- should return as straight, value of 85 (80 + 5)
 var fHand2 = [new Card("aceofspades", "Ace of spades", "spades", 13, 13, "black"),
-              new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
-              new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
-              new Card("2ofspades", "2 of spades", "xx", 1, 1, "black"),
-              new Card("3ofspades", "3 of spades", "xx", 2, 2, "black"),
-              new Card("4ofspades", "4 of spades", "spades", 3, 3, "black"),
-              new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
-              new Card("6ofspades", "6 of spades", "spades", 5, 5, "black")];
+    new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
+    new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
+    new Card("2ofspades", "2 of spades", "xx", 1, 1, "black"),
+    new Card("3ofspades", "3 of spades", "xx", 2, 2, "black"),
+    new Card("4ofspades", "4 of spades", "spades", 3, 3, "black"),
+    new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
+    new Card("6ofspades", "6 of spades", "spades", 5, 5, "black")];
 
 //fixed hand three -- should return as straight, value of 86 (80 + 6)
 var fHand3 = [new Card("aceofspades", "Ace of spades", "spades", 13, 13, "black"),
-              new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
-              new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
-              new Card("2ofspades", "2 of spades", "spades", 1, 1, "black"),
-              new Card("3ofspades", "3 of spades", "xx", 2, 2, "black"),
-              new Card("4ofspades", "4 of spades", "xx", 3, 3, "black"),
-              new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
-              new Card("6ofspades", "6 of spades", "spades", 5, 5, "black"),
-              new Card("7ofspades", "7 of spades", "spades", 6, 6, "black")];
+    new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
+    new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
+    new Card("2ofspades", "2 of spades", "spades", 1, 1, "black"),
+    new Card("3ofspades", "3 of spades", "xx", 2, 2, "black"),
+    new Card("4ofspades", "4 of spades", "xx", 3, 3, "black"),
+    new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
+    new Card("6ofspades", "6 of spades", "spades", 5, 5, "black"),
+    new Card("7ofspades", "7 of spades", "spades", 6, 6, "black")];
 
 //fixed hand four -- should return as four of a kind, value of 153 (140 + 13)
 var fHand4 = [new Card("aceofspades", "Ace of spades", "spades", 13, 13, "black"),
-              new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
-              new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
-              new Card("aceofdiamonds", "Ace of diamonds", "spades", 13, 52, "red"),
-              new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
-              new Card("7ofspades", "7 of spades", "spades", 6, 6, "black"),
-              new Card("9ofspades", "9 of spades", "spades", 8, 8, "black")];
+    new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
+    new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
+    new Card("aceofdiamonds", "Ace of diamonds", "spades", 13, 52, "red"),
+    new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
+    new Card("7ofspades", "7 of spades", "spades", 6, 6, "black"),
+    new Card("9ofspades", "9 of spades", "spades", 8, 8, "black")];
 
-//fixed hand five -- should return as four of a kind, value of 153 (140 + 13)
+//fixed hand five -- should return as straight flush, value of 165 (160 + 5)
 var fHand5 = [new Card("aceofspades", "Ace of spades", "spades", 13, 13, "black"),
-              new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
-              new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
-              new Card("aceofdiamonds", "Ace of diamonds", "spades", 13, 52, "red"),
-              new Card("2ofspades", "2 of spades", "spades", 1, 1, "black"),
-              new Card("3ofspades", "3 of spades", "spades", 2, 2, "black"),
-              new Card("4ofspades", "4 of spades", "spades", 3, 3, "black"),
-              new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
-              new Card("6ofspades", "6 of spades", "spades", 5, 5, "black")];
+    new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
+    new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
+    new Card("aceofdiamonds", "Ace of diamonds", "spades", 13, 52, "red"),
+    new Card("2ofspades", "2 of spades", "spades", 1, 1, "black"),
+    new Card("3ofspades", "3 of spades", "spades", 2, 2, "black"),
+    new Card("4ofspades", "4 of spades", "spades", 3, 3, "black"),
+    new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
+    new Card("6ofspades", "6 of spades", "spades", 5, 5, "black")];
 
 //fixed hand 6 -- should return as full house, value of 133 (120 + 13)
 var fHand6 = [new Card("aceofspades", "Ace of spades", "spades", 13, 13, "black"),
-              new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
-              new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
-              new Card("2ofhearts", "2 of hearts", "hearts", 1, 27, "red"),
-              new Card("2ofclubs", "2 of spades", "clubs", 1, 14, "black"),
-              new Card("4ofspades", "4 of spades", "spades", 3, 3, "black"),
-              new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
-              new Card("6ofspades", "6 of spades", "spades", 5, 5, "black")];
+    new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
+    new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red"),
+    new Card("2ofhearts", "2 of hearts", "hearts", 1, 27, "red"),
+    new Card("2ofclubs", "2 of spades", "clubs", 1, 14, "black"),
+    new Card("4ofspades", "4 of spades", "spades", 3, 3, "black"),
+    new Card("5ofspades", "5 of spades", "spades", 4, 4, "black"),
+    new Card("6ofspades", "6 of spades", "spades", 5, 5, "black")];
 
 //fixed hand 7 -- should return as three of a kind, value of 73 (60 + 13)
 var fHand7 = [new Card("aceofspades", "Ace of spades", "spades", 13, 13, "black"),
-              new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
-              new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red")];
+    new Card("aceofclubs", "Ace of clubs", "clubs", 13, 26, "black"),
+    new Card("aceofhearts", "Ace of hearts", "hearts", 13, 39, "red")];
 
-//fixed hand 8 -- should return as flush, value of
+//fixed hand 8 -- should return as flush, value of 112
 var fHand8 = [new Card("2ofspades", "2 of hearts", "spades", 1, 1, "black"),
-              new Card("8ofspades", "2 of spades", "spades", 7, 7, "black"),
-              new Card("4ofspades", "4 of spades", "spades", 3, 3, "black"),
-              new Card("kingofspades", "King of spades", "spades", 12, 12, "black"),
-              new Card("6ofspades", "6 of spades", "spades", 5, 5, "black")];
+    new Card("8ofspades", "2 of spades", "spades", 7, 7, "black"),
+    new Card("4ofspades", "4 of spades", "spades", 3, 3, "black"),
+    new Card("kingofspades", "King of spades", "spades", 12, 12, "black"),
+    new Card("6ofspades", "6 of spades", "spades", 5, 5, "black")];
+
+//fixed hand 9 -- should return as a two pair, value 52
+var fHand9 = [new Card("kingofdiamonds", "King of diamonds", "diamonds", 12, 0, "red"),
+    new Card("queenofhearts", "Queen of hearts", "hearts", 11, 0, "red"),
+    new Card("7ofspades", "7 of spades", "spades", 6, 0, "black"),
+    new Card("kingofdiamonds", "King of diamonds", "diamonds", 12, 0, "red"),
+    new Card("queenofhearts", "Queen of hearts", "hearts", 11, 0, "red")];
 
 /*
  * Loop through 52 times and create 52 cards, give them a suit, value,
@@ -237,7 +244,7 @@ function addToPile(array) {
 }
 
 /*
-*Drawing cards and dealing out 3 hands..
+ *Drawing cards and dealing out 3 hands..
  */
 var drawnCard;
 drawnCard = drawCard();
@@ -286,9 +293,6 @@ function testGetHighCard() {
         var highCard = array[0];
 
         for (var c = 0; c < array.length; c++) {
-
-            console.log("card is " + array[c].value);
-            console.log("high card is " + highCard.value);
 
             if(array[c].value == 1){
                 highCard = array[c];
@@ -487,30 +491,29 @@ function testGetRank() {
 
         for (var c = 0; c < cardValueArray.length; c++) {
             var x = cardValueArray[c];
-            //cardValueArray.splice(cardValueArray.indexOf(cardValueArray[c]), 1); //remove this card value from card array value
 
             if (x === tempX) {
                 iFoundX++;
                 highestCardValue = x;
+                if (iFoundX === 2){
+                    return true;
+                }
             }
             else{
+                iFoundX = 0;
                 tempX = x;
             }
-        }
-
-        if (iFoundX === 2){
-            return true;
         }
 
         return false;
     }
     /*
-    * !!!!!! BUG !!!!!!
-    *
-    *   works, but if there's a straight of more than 5 cards, will give the highest card value as
-    *   the fifth cards value, not the correct highest card value, which would be the value of the
-    *   last card in the straight.
-    *
+     * !!!!!! BUG !!!!!!
+     *
+     *   works, but if there's a straight of more than 5 cards, will give the highest card value as
+     *   the fifth cards value, not the correct highest card value, which would be the value of the
+     *   last card in the straight.
+     *
      */
     function seekStraight(array){
         var cardValueArray = [];
@@ -553,15 +556,15 @@ function testGetRank() {
         for(Card in array){
             var x = array[Card];
 
-                if (x.suit === tempX) {
-                    iFoundX++;
-                    if(x.value > highestCardValue){
-                        highestCardValue = x.value;
-                    }
+            if (x.suit === tempX) {
+                iFoundX++;
+                if(x.value > highestCardValue){
+                    highestCardValue = x.value;
                 }
-                else{
-                    tempX = x.suit;
-                }
+            }
+            else{
+                tempX = x.suit;
+            }
 
             if (iFoundX >= 4){
                 return true;
@@ -575,23 +578,89 @@ function testGetRank() {
 
     function seekFullHouse(array){
         var tempHold = []; //will hold the cards taken out of the hand, to put them back in after it tries to
-                            //find the two pair
+        //find the two pair
 
-        if(seekThreeOfAKind(array)){
+        if(seekThreeOfAKind(array)){ //check to see if hand passes seek three of a kind
+            //if it does, loop through all the cards in this hand
             for (Card in array) {
+                if (array[Card].value === highestCardValue) { //if the cards value is the highestcardvalue, which
+                    //will be set when the function checks for the three of a kind
+                    tempHold.push(array[Card]); //then add this card to a temporary array
+                }
+            }
 
-                if (array[Card].value === highestCardValue) {
-                    tempHold.push(array[Card]);
-                    array.splice(array.indexOf(array[Card]), 1);
+            // !!!!!This is whats causing the code to break!!!!!
+            //loop through these cards again..
+            for(Card in tempHold) {
+                for (Card in array) {
+                    //and any card that is the same as a card in the temporary array..
+                    if (array[Card] === tempHold[Card]) {
+                        console.log(array[Card] + );
+                        array.splice(array.indexOf(array[Card]), 1); //take them out of the hand
+                        break;
+                    }
+                }
+
+                for (Card in array) {
+                    //and any card that is the same as a card in the temporary array..
+                    if (array[Card] === tempHold[Card]) {
+                        console.log(array[Card]);
+                        array.splice(array.indexOf(array[Card]), 1); //take them out of the hand
+                        break;
+                    }
+                }
+
+                for (Card in array) {
+                    //and any card that is the same as a card in the temporary array..
+                    if (array[Card] === tempHold[Card]) {
+                        console.log(array[Card]);
+                        array.splice(array.indexOf(array[Card]), 1); //take them out of the hand
+                        break;
+                    }
+                }
+
+                for (Card in array) {
+                    //and any card that is the same as a card in the temporary array..
+                    if (array[Card] === tempHold[Card]) {
+                        console.log(array[Card]);
+                        array.splice(array.indexOf(array[Card]), 1); //take them out of the hand
+                        break;
+                    }
+                }
+
+                for (Card in array) {
+                    //and any card that is the same as a card in the temporary array..
+                    if (array[Card] === tempHold[Card]) {
+                        console.log(array[Card]);
+                        array.splice(array.indexOf(array[Card]), 1); //take them out of the hand
+                        break;
+                    }
+                }
+
+                for (Card in array) {
+                    //and any card that is the same as a card in the temporary array..
+                    if (array[Card] === tempHold[Card]) {
+                        console.log(array[Card]);
+                        array.splice(array.indexOf(array[Card]), 1); //take them out of the hand
+                        break;
+                    }
+                }
+
+                for (Card in array) {
+                    //and any card that is the same as a card in the temporary array..
+                    if (array[Card] === tempHold[Card]) {
+                        console.log(array[Card]);
+                        array.splice(array.indexOf(array[Card]), 1); //take them out of the hand
+                        break;
+                    }
                 }
             }
 
             if(seekTwoPair(array)){
-                //return cards back into hand..
+                //return cards back into hand from the temporary array..
                 for (Card in tempHold){
                     array.push(array[Card]);
                 }
-
                 return true;
             }
         }
@@ -600,7 +669,6 @@ function testGetRank() {
         for (Card in tempHold){
             array.push(array[Card]);
         }
-
         highestCardValue = 0;
         return false;
     }
@@ -622,25 +690,25 @@ function testGetRank() {
             if (x === tempX) {
                 iFoundX++;
                 highestCardValue = x;
+                if (iFoundX >= 3){
+                    return true;
+                }
             }
             else{
+                iFoundX = 0;
                 tempX = x;
             }
-        }
 
-        if (iFoundX > 3){
-            return true;
         }
 
         return false;
     }
 
     function seekStraightFlush(array){
-        return false;
+        return (seekStraight(array) && seekFlush(array))
     }
 
     /*******************************************************************************
-     *
      *
      *  This function will return the hands ranking.
      *
@@ -676,35 +744,115 @@ function testGetRank() {
         }
     }
 
+    /*******************************************************************************
+     *
+     *  This function finds the hand that one the round for 3 hands
+     *
+     *      It will then get rank on all the hands individually, and assess who
+     *      has the highest ranking
+     *
+     *      If a tie occurs, it will get rank again on all of the hands, which
+     *      should have the removed cards from the previous go.
+     *
+     *******************************************************************************
+     */
+    function find3HandWinner(hand1, hand2, hand3){
+        var h1Rank = getRank(hand1);
+        var h2Rank = getRank(hand2);
+        var h3Rank = getRank(hand3);
+
+        console.log(h1Rank + " " + h2Rank + " " + h3Rank);
+        if ((h1Rank === h2Rank) && (h1Rank === h3Rank)){
+            console.log("Winner between all three hands");
+            return true;
+        }
+
+        if(h1Rank > h2Rank){
+            if(h1Rank > h3Rank) {
+                console.log("Hand 1 is the winner");
+            } else if(h1Rank === h3Rank) {
+                var h1Rank2 = getRank(hand1);
+                var h3Rank2 = getRank(hand3);
+
+                if (h1Rank2 > h3Rank2){
+                    console.log("Hand 1 is the winner")
+                } else if (h1Rank2 === h3Rank2){
+                    console.log("Tie between hand 1 and 3");
+                } else console.log("Hand 3 is the winner")
+
+            } else console.log("Hand 3 is the winner")
+        } else if (h1Rank === h2Rank){
+            if(h3Rank > h1Rank) {
+                console.log("Hand 3 is the winner")
+            } else {
+                var h1Rank2 = getRank(hand1);
+                var h2Rank2 = getRank(hand2);
+
+                if (h1Rank2 > h2Rank2){
+                    console.log("Hand 1 is the winner")
+                } else if (h1Rank2 === h2Rank2){
+                    console.log("Tie between hand 1 and 2");
+                } else console.log("Hand 2 is the winner")
+
+            }
+        } else if (h2Rank > h3Rank){
+            console.log("Hand 2 is the winner")
+        } else if (h2Rank === h3Rank) {
+            var h2Rank2 = getRank(hand2);
+            var h3Rank2 = getRank(hand3);
+
+            if (h2Rank2 > h3Rank2){
+                console.log("Hand 2 is the winner")
+            } else if (h2Rank2 === h3Rank2){
+                console.log("Tie between hand 2 and 3");
+            } else console.log("Hand 3 is the winner")
+        }
+        else {
+            console.log("Hand 3 is the winner")
+        }
+
+    }
+
     var f1Rank = getRank(fHand1); //should be 73
-    var f2Rank = getRank(fHand2); //should be 85
-    var f3Rank = getRank(fHand3); //should be 86
-    var f4Rank = getRank(fHand4); //should be 153
-    var f5Rank = getRank(fHand5); //should be 153
-    var f6Rank = getRank(fHand6); //should be 133
-    var f7Rank = getRank(fHand7); //should be 73
-    var f8Rank = getRank(fHand8); //should be 112
+    //var f2Rank = getRank(fHand2); //should be 85
+    //var f3Rank = getRank(fHand3); //should be 86
+    //var f4Rank = getRank(fHand4); //should be 153
+    //var f5Rank = getRank(fHand5); //should be 165
+    //var f6Rank = getRank(fHand6); //should be 133
+    //var f7Rank = getRank(fHand7); //should be 73
+    //var f8Rank = getRank(fHand8); //should be 112
+    //var f9Rank = getRank(fHand9); //should be 32
 
-    var p1Rank = getRank(pHand1);
-    var p2Rank = getRank(pHand2);
-    var p3Rank = getRank(pHand3);
+    //var p1Rank = getRank(pHand1);
+    //var p2Rank = getRank(pHand2);
+    //var p3Rank = getRank(pHand3);
 
-    console.log("Player 1's hand " + pHand1[0].cardUIName + ", " + pHand1[1].cardUIName + ", " + pHand1[2].cardUIName + ", " + pHand1[3].cardUIName + ", " + pHand1[4].cardUIName);
-    console.log("Player 2's hand " + pHand2[0].cardUIName + ", " + pHand2[1].cardUIName + ", " + pHand2[2].cardUIName + ", " + pHand2[3].cardUIName + ", " + pHand2[4].cardUIName);
-    console.log("Player 3's hand " + pHand3[0].cardUIName + ", " + pHand3[1].cardUIName + ", " + pHand3[2].cardUIName + ", " + pHand3[3].cardUIName + ", " + pHand3[4].cardUIName);
-    console.log("-------------------------------");
-    console.log("Player 1's Rank " + p1Rank);
-    console.log("Player 2's Rank " + p2Rank);
-    console.log("Player 3's Rank " + p3Rank);
-    console.log("-------------------------------");
+    //var f1Rank2 = getRank(fHand1); //73..
+
+    //console.log("Player 1's hand " + pHand1[0].cardUIName + ", " + pHand1[1].cardUIName + ", " + pHand1[2].cardUIName + ", " + pHand1[3].cardUIName + ", " + pHand1[4].cardUIName);
+    //console.log("Player 2's hand " + pHand2[0].cardUIName + ", " + pHand2[1].cardUIName + ", " + pHand2[2].cardUIName + ", " + pHand2[3].cardUIName + ", " + pHand2[4].cardUIName);
+    //console.log("Player 3's hand " + pHand3[0].cardUIName + ", " + pHand3[1].cardUIName + ", " + pHand3[2].cardUIName + ", " + pHand3[3].cardUIName + ", " + pHand3[4].cardUIName);
+    //console.log("-------------------------------");
+    //console.log("Player 1's Rank " + p1Rank);
+    //console.log("Player 2's Rank " + p2Rank);
+    //console.log("Player 3's Rank " + p3Rank);
+    //console.log("-------------------------------");
+
     console.log("Fixed hand 1's Rank " + f1Rank);
-    console.log("Fixed hand 2's Rank " + f2Rank);
-    console.log("Fixed hand 3's Rank " + f3Rank);
-    console.log("Fixed hand 4's Rank " + f4Rank);
-    console.log("Fixed hand 5's Rank " + f5Rank);
-    console.log("Fixed hand 6's Rank " + f6Rank);
-    console.log("Fixed hand 7's Rank " + f7Rank);
-    console.log("Fixed hand 8's Rank " + f8Rank);
+    //console.log("Fixed hand 1's Rank " + f1Rank2);
+    /*
+     console.log("Fixed hand 2's Rank " + f2Rank);
+     console.log("Fixed hand 3's Rank " + f3Rank);
+     console.log("Fixed hand 4's Rank " + f4Rank);
+     console.log("Fixed hand 5's Rank " + f5Rank);
+     console.log("Fixed hand 6's Rank " + f6Rank);
+     console.log("Fixed hand 7's Rank " + f7Rank);
+     console.log("Fixed hand 8's Rank " + f8Rank);
+     console.log("Fixed hand 9's Rank " + f9Rank);
+     console.log("-------------------------------");
+     console.log(fHand1)
+     */
+
 }
 
 testGetRank();
